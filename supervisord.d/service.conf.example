@@ -1,0 +1,23 @@
+[group:saas]
+programs=saas-rpc,saas-api,file-api
+priority=999
+
+[program:saas-rpc]
+directory = ./services/saas-core
+command = ./saas-rpc
+stdout_logfile = ./logs/saas_rpc_super_console.log
+stderr_logfile = ./logs/saas_rpc_super_err.log
+
+[program:saas-api]
+directory = ./services/saas-core
+depends_on = saas-rpc
+command = ./saas-api
+stdout_logfile = ./logs/saas_api_super_console.log
+stderr_logfile = ./logs/saas_api_super_err.log
+
+[program:file-api]
+directory = ./services/saas-core
+depends_on = saas-rpc
+command = ./file-api
+stdout_logfile = ./logs/file_api_super_console.log
+stderr_logfile = ./logs/file_api_super_err.log

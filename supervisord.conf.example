@@ -1,0 +1,21 @@
+[inet_http_server]
+port = :9001
+username=suAdmin
+password=xxxxxxxxxxxxx
+
+[unix_http_server]
+file=/tmp/supervisord.sock
+username=suAdmin
+password=xxxxxxxxxxxxxx
+
+# [program-default]
+# environment=SUPERVISOR_GROUP_DISPLAY=true
+# envFiles=global.env,prod.env
+
+[supervisorctl]
+serverurl = unix:///tmp/supervisord.sock
+username=xxxxxxx
+password=xxxxxxxxxxxxxx
+
+[include]
+files=./supervisord.d/*.conf
